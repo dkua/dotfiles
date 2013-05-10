@@ -15,9 +15,12 @@ set history=1000
 
 " Colours, fonts
 syntax enable       " Enable syntax highlighting
-se t_Co=16
+se t_Co=256
 let g:solarized_termcolors=256 
-set background=dark 
+set background=dark
+if !has('gui_running')
+    let g:solarized_termtrans=1
+endif
 colorscheme solarized " Use Solarized theme
 
 filetype on
