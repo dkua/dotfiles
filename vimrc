@@ -63,8 +63,13 @@ autocmd BufReadPost *
     \ endif
 
 " Columns
-set colorcolumn=80
-" highlight ColorColumn ctermbg=darkgrey
+if exists('+colorcolumn')
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=darkgrey
+else
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%81v.\+/
+endif
 
 " Menu
 set wildmenu                                    " better command line completion
