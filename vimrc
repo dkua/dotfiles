@@ -20,6 +20,7 @@ colorscheme solarized " Use Solarized theme
 filetype on
 filetype indent on  " Indent based on filetype
 filetype plugin on
+set number " Line numbers ftw!
 
 " Use 256 colour palette if available
 if &term =~ "xterm"
@@ -89,7 +90,6 @@ set statusline+=%=                      " left/right separation point
 set statusline+=\ \ %2l,                " current line number
 set statusline+=%-5c                    " current column number
 set statusline+=%p%%\ of\ %-6L          " total number of lines in buffer
-set statusline+=%{SyntaxItem()}         " highlight group syntax under cursor
 set statusline+=\ [%03.3b][0x%02.2B]\   " ASCII and byte code of char under cursor
 autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
 
