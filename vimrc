@@ -16,7 +16,7 @@ set history=1000
 " Colours, fonts
 syntax enable       " Enable syntax highlighting
 set background=dark 
-colorscheme solarize " Use Solarized theme
+colorscheme solarized " Use Solarized theme
 filetype on
 filetype indent on  " Indent based on filetype
 filetype plugin on
