@@ -15,8 +15,11 @@ set history=1000
 
 " Colours, fonts
 syntax enable       " Enable syntax highlighting
+se t_Co=16
+let g:solarized_termcolors=256 
 set background=dark 
 colorscheme solarized " Use Solarized theme
+
 filetype on
 filetype indent on  " Indent based on filetype
 filetype plugin on
@@ -61,7 +64,7 @@ autocmd BufReadPost *
 
 " Columns
 set colorcolumn=80
-highlight ColorColumn ctermbg=darkgrey
+" highlight ColorColumn ctermbg=darkgrey
 
 " Menu
 set wildmenu                                    " better command line completion
@@ -91,7 +94,7 @@ set statusline+=\ \ %2l,                " current line number
 set statusline+=%-5c                    " current column number
 set statusline+=%p%%\ of\ %-6L          " total number of lines in buffer
 set statusline+=\ [%03.3b][0x%02.2B]\   " ASCII and byte code of char under cursor
-autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
+" autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
 
 " When switching to a file, enter its directory
 autocmd BufEnter * :lcd %:p:h
