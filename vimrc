@@ -136,6 +136,7 @@ set wrapmargin=0
 " NERDTree Stuff
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Miscellaneous
 set backspace=eol,start,indent " better backspacing
