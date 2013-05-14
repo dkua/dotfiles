@@ -133,6 +133,10 @@ set nolist
 set textwidth=0
 set wrapmargin=0
 
+" NERDTree Stuff
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
 " Miscellaneous
 set backspace=eol,start,indent " better backspacing
 set ruler           " show current position
