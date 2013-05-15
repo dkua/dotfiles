@@ -102,7 +102,8 @@ set statusline+=\ \ %2l,                " current line number
 set statusline+=%-5c                    " current column number
 set statusline+=%p%%\ of\ %-6L          " total number of lines in buffer
 set statusline+=\ [%03.3b][0x%02.2B]\   " ASCII and byte code of char under cursor
-" autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
+autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
+set statusline+=%{fugitive#statusline()}\ 
 
 " When switching to a file, enter its directory
 autocmd BufEnter * :lcd %:p:h
@@ -132,6 +133,9 @@ set linebreak
 set nolist
 set textwidth=0
 set wrapmargin=0
+
+" Gundo Stuff
+map <leader>g :GundoToggle<CR>
 
 " NERDTree Stuff
 autocmd vimenter * if !argc() | NERDTree | endif
