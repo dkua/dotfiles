@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/dkua/proj/dotfiles'
 let g:netrw_dirhist_2='/Users/dkua/proj'
 let g:netrw_dirhist_3='scp://devadmin1/'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='scp://devadmin1/vmportal/vmportal/'
 let g:netrw_dirhist_6='scp://devadmin1/vmportal/vmportal/templates/'
 let g:netrw_dirhist_7='scp://devadmin1/vmportal/vmp/'
 let g:netrw_dirhist_8='/Users/dkua/.ssh'
+let g:netrw_dirhist_9='/Users/dkua/proj/dotfiles'
