@@ -13,6 +13,10 @@ set softtabstop=4
 set autoindent      " Copy indent from current line to next upon pressing Enter
 set history=1000
 
+" Put backups and swap files elsewhere
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
+
 " Colours, fonts
 syntax enable       " Enable syntax highlighting
 se t_Co=256
