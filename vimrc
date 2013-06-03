@@ -13,9 +13,9 @@ set softtabstop=4
 set autoindent      " Copy indent from current line to next upon pressing Enter
 set history=1000
 
-" Put backups and swap files elsewhere
-set backupdir=./.backup,.,/tmp
-set directory=.,./.backup,/tmp
+" Put buckups and swap files elsewhere
+set backupdir=~/tmp/
+set directory=~/tmp/
 
 " Colours, fonts
 syntax enable       " Enable syntax highlighting
