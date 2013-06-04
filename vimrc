@@ -160,3 +160,13 @@ set showcmd         " show (partial) command keys in the status line
 if has("mouse")
     set mouse=a
 endif
+
+" Block Arrow Keys
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
