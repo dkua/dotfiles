@@ -39,6 +39,7 @@ filetype on
 filetype indent on  " Indent based on filetype
 filetype plugin on
 set number " Line numbers ftw!
+nnoremap <F3> :set nonumber!<CR>
 
 " Use 256 colour palette if available
 if &term =~ "xterm"
