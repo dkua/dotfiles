@@ -127,6 +127,7 @@ map <c-l> <c-w>l
 " Copying to / pasting from the system clipboard
 vnoremap <c-y> :w !pbcopy<CR><CR>
 nmap <c-p> :r !pbpaste<CR>
+set clipboard=unnamed
 
 " These suffixes get lower priority when doing tab completion for filenames
 " (usually files we are not likely to want to edit or read
