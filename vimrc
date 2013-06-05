@@ -14,8 +14,8 @@ set autoindent      " Copy indent from current line to next upon pressing Enter
 set history=1000
 
 " Put buckups and swap files elsewhere
-set backupdir=~/tmp/
-set directory=~/tmp/
+set backupdir=~/.tmp/
+set directory=~/.tmp/
 
 " Colours, fonts
 syntax enable       " Enable syntax highlighting

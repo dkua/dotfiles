@@ -6,6 +6,8 @@ alias "tmux.nuke"='tmux kill-server'
 git submodule init
 git submodule update
 
+mkdir ~/.tmp
+
 ln -s tmux.conf ~/.tmux.conf
 ln -s vimrc ~/.vimrc
 ln -s vim ~/.vim
