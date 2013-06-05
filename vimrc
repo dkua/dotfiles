@@ -1,6 +1,14 @@
 " Keep vim from trying to be 100% vi compatible
 set nocompatible
 
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+
+" Disable plugins which require vim 7.3
+if v:version < '703'
+    call add(g:pathogen_disabled, "syntastics")
+endif
+
 " Turn Pathogen on
 execute pathogen#infect()
 
