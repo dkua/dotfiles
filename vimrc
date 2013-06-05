@@ -6,7 +6,7 @@ let g:pathogen_disabled = []
 
 " Disable plugins which require vim 7.3
 if v:version < '703'
-    call add(g:pathogen_disabled, "syntastics")
+    call add(g:pathogen_disabled, "syntastic")
 endif
 
 " Turn Pathogen on
