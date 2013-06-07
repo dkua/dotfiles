@@ -8,7 +8,7 @@ git submodule update
 
 mkdir ~/.tmp
 
+ln -s gitconfig ~/.gitconfig
 ln -s tmux.conf ~/.tmux.conf
 ln -s vimrc ~/.vimrc
 ln -s vim ~/.vim
-ln -s gitconfig ~/.gitconfig
