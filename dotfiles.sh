@@ -11,3 +11,4 @@ mkdir ~/.tmp
 ln -s tmux.conf ~/.tmux.conf
 ln -s vimrc ~/.vimrc
 ln -s vim ~/.vim
+ln -s gitconfig ~/.gitconfig
