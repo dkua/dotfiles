@@ -38,6 +38,7 @@ colorscheme solarized " Use Solarized theme
 filetype on
 filetype indent on  " Indent based on filetype
 filetype plugin on
+filetype plugin indent on
 set number " Line numbers ftw!
 nnoremap <F3> :set nonumber!<CR>
 
