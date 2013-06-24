@@ -13,6 +13,10 @@ endif
 execute pathogen#infect()
 
 " Tabs
+filetype plugin indent on
+set number " Line numbers ftw!
+nnoremap <F3> :set nonumber!<CR>
+
 set expandtab       " Use spaces instead of tabs
 set smarttab        " Be smart about using tabs
 set shiftwidth=4
@@ -63,13 +67,6 @@ if !has('gui_running')
     let g:solarized_termtrans=1
 endif
 colorscheme solarized " Use Solarized theme
-
-filetype on
-filetype indent on  " Indent based on filetype
-filetype plugin on
-filetype plugin indent on
-set number " Line numbers ftw!
-nnoremap <F3> :set nonumber!<CR>
 
 " Use 256 colour palette if available
 if &term =~ "xterm"
