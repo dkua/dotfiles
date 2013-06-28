@@ -169,6 +169,7 @@ nnoremap d "_d
 vnoremap d "_d
 nnoremap c "_c
 vnoremap c "_c
+vnoremap p "_dP
 
 " These suffixes get lower priority when doing tab completion for filenames
 " (usually files we are not likely to want to edit or read
