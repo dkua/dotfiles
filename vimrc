@@ -16,6 +16,8 @@ execute pathogen#infect()
 filetype plugin indent on
 set number " Line numbers ftw!
 nnoremap <F3> :set nonumber!<CR>
+map <Left> :tabp<cr>
+map <Right> :tabn<cr>
 
 set expandtab       " Use spaces instead of tabs
 set smarttab        " Be smart about using tabs
