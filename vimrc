@@ -164,6 +164,11 @@ map <c-l> <c-w>l
 vnoremap <c-y> :w !pbcopy<CR><CR>
 nmap <c-p> :r !pbpaste<CR>
 set clipboard=unnamed
+" Don't delete to normal clipboard buffer
+nnoremap d "_d
+vnoremap d "_d
+nnoremap c "_c
+vnoremap c "_c
 
 " These suffixes get lower priority when doing tab completion for filenames
 " (usually files we are not likely to want to edit or read
