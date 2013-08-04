@@ -1,14 +1,13 @@
-alias "tmux.new"='tmux new-session -s ${1}'
-alias "tmux.attach"='tmux attach-session -t ${1}'
-alias "tmux.list"='tmux list-sessions'
-alias "tmux.nuke"='tmux kill-server'
+$PWD = pwd
 
 git submodule init
 git submodule update
 
 mkdir ~/.tmp
 
-ln -s gitconfig ~/.gitconfig
-ln -s tmux.conf ~/.tmux.conf
-ln -s vimrc ~/.vimrc
-ln -s vim ~/.vim
+ln -s -f $PWD/zshrc ~/.zshrc
+ln -s -f $PWD/gitconfig ~/.gitconfig
+ln -s -f $PWD/tmux.conf ~/.tmux.conf
+ln -s -f $PWD/vimrc ~/.vimrc
+ln -s -f $PWD/vim ~/.vim
+ln -s -f $PWD/slate ~/.slate
