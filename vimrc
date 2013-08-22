@@ -11,6 +11,7 @@ endif
 
 " Turn Pathogen on
 execute pathogen#infect()
+let g:airline_powerline_fonts = 1
 
 " Tabs
 filetype plugin indent on
@@ -26,34 +27,9 @@ set tabstop=2
 set softtabstop=4
 set autoindent      " Copy indent from current line to next upon pressing Enter
 set history=1000
-if exists("+showtabline")
-    function MyTabLine()
-        let s = ''
-        let t = tabpagenr()
-        let i = 1
-        while i <= tabpagenr('$')
-            let buflist = tabpagebuflist(i)
-            let winnr = tabpagewinnr(i)
-            let s .= '%' . i . 'T'
-            let s .= (i == t ? '%1*' : '%2*')
-            let s .= ' '
-            let s .= i . ')'
-            let s .= ' %*'
-            let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-            let file = bufname(buflist[winnr - 1])
-            let file = fnamemodify(file, ':p:t')
-            if file == ''
-                let file = '[No Name]'
-            endif
-            let s .= file
-            let i = i + 1
-        endwhile
-        let s .= '%T%#TabLineFill#%='
-        let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-        return s
-    endfunction
-    set stal=2
-    set tabline=%!MyTabLine()
+
+if $TMUX == ''
+    set clipboard+=unnamed
 endif
 
 " Put buckups and swap files elsewhere
@@ -109,8 +85,8 @@ autocmd BufReadPost *
 
 " Columns
 if exists('+colorcolumn')
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=darkgrey
+    set colorcolumn=80,100
+    highlight ColorColumn ctermbg=95
 else
     highlight OverLength ctermbg=red ctermfg=white guibg=#592929
     match OverLength /\%81v.\+/
@@ -211,3 +187,9 @@ noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
 noremap! <Down> <Esc>
+
+" CTag Stuff
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <C-\> :TagbarToggle<CR>
+
+let g:netrw_liststyle = 3

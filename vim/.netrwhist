@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/dkua/code/vmportal/vmportal'
-let g:netrw_dirhist_2='/Users/dkua/Downloads/OpenVPN tunnelblick configurations/VM Farms Development.tblk'
-let g:netrw_dirhist_3='/Users/dkua'
-let g:netrw_dirhist_4='/Users/dkua/code/golangTO'
-let g:netrw_dirhist_5='/Users/dkua/code/docker'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/dkua/code/dkua'
+let g:netrw_dirhist_2='/Users/dkua/code/dkua/themes'
+let g:netrw_dirhist_3='/Users/dkua/code/dkua/themes/dkua-theme'
+let g:netrw_dirhist_4='/Users/dkua/code/dkua'
+let g:netrw_dirhist_5='/Users/dkua/code/dkua/python-skyfield'
+let g:netrw_dirhist_6='/Users/dkua/code/dkua/python-skyfield/skyfield'
+let g:netrw_dirhist_7='/Users/dkua/code/dkua/python-skyfield'
+let g:netrw_dirhist_8='/Users/dkua/code/dkua/python-skyfield/skyfield'
