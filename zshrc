@@ -2,7 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 source /usr/local/bin/virtualenvwrapper.sh
@@ -20,6 +21,8 @@ alias "tmux.new"='tmux new-session -s ${1}'
 alias "tmux.attach"='tmux attach-session -t ${1}'
 alias "tmux.list"='tmux list-sessions'
 alias "tmux.nuke"='tmux kill-server'
+alias "anaconda"="export PATH=/Users/dkua/anaconda/bin:$PATH"
+alias "rlzsh"="source ~/.zshrc"
 
 search_dash() {
     open dash://"$@"
