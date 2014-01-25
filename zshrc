@@ -2,11 +2,12 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Customize to your needs...
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$GOPATH/bin
 export PATH=$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 source /usr/local/bin/virtualenvwrapper.sh
+export GOPATH=/Users/dkua/go
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -65,3 +66,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
