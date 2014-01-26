@@ -13,8 +13,18 @@ endif
 execute pathogen#infect()
 let g:airline_powerline_fonts = 1
 
-" Tabs
+" Syntax Filetype stuff
+filetype off
+filetype plugin indent off
+if empty($GOROOT)
+    set runtimepath+=/usr/local/go/misc/vim
+else
+    set runtimepath+=$GOROOT/misc/vim
+endif
 filetype plugin indent on
+syntax on
+
+" Tabs
 set number " Line numbers ftw!
 nnoremap <F3> :set nonumber!<CR>
 map <Left> :tabp<cr>
