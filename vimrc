@@ -203,3 +203,4 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <C-\> :TagbarToggle<CR>
 
 let g:netrw_liststyle = 3
+syntax on
