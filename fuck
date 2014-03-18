@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys, os
+
+if len(sys.argv) == 3 and sys.argv[1] == "you":
+    regular = u"abcdefghijklmnopqrstuvqxyz"
+    irregular = u"ɐqɔpǝɟƃɥıɾʞʃɯuodbɹsʇnʌʍxʎz"
+    flipped = dict(zip(regular, irregular))
+    print u"\n  (╯°□°）╯︵ %s" % "".join(flipped[c] for c in reversed(sys.argv[2]))
+    os.system("killall -9 %s" % sys.argv[2])
+else:
+    sys.exit("Usage: fuck you [process name]")

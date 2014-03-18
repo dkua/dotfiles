@@ -17,4 +17,6 @@ mkdir -p $HOME/.vim/autoload/go
 ln -s /usr/local/go/misc/vim/ftdetect/gofiletype.vim $HOME/.vim/ftdetect/
 ln -s /usr/local/go/misc/vim/syntax/go.vim $HOME/.vim/syntax
 ln -s /usr/local/go/misc/vim/autoload/go/complete.vim $HOME/.vim/autoload/go
+ln -s $PWD/fuck /usr/local/bin/fuck
+chmod +x $PWD/fuck
 echo "syntax on" >> $HOME/.vimrc
