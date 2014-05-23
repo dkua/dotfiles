@@ -1,9 +1,9 @@
 DIR=$(HOME)/dotfiles
 
-osx: symlinks ensure_brew brew python_env go_env clone_vundle
+osx: symlinks ensure_brew brew python_env go_env clone_vundle oh_my_zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
-deb: symlinks apt-get python_env go_env clone_vundle
+deb: symlinks apt-get python_env go_env clone_vundle oh_my_zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -41,3 +41,7 @@ go_env:
 clone_vundle: symlinks
 	mkdir -p $(HOME)/.vim/bundle/
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
+
+oh_my_zsh:
+	git clone git://github.com/robbyrussell/oh-my-zsh.git $(HOME)/.oh-my-zsh
+	sudo chsh -s /bin/zsh

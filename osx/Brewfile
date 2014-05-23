@@ -16,3 +16,4 @@ install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 install osxfuse
 install sshfs
 install ntfs-3g
+install zsh
