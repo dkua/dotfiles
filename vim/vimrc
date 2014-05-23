@@ -1,0 +1,179 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Language Plugins
+Plugin 'fatih/vim-go'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+
+" Tool Plugins
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'flazz/vim-colorschemes'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Enable highlighting for syntax
+syntax on
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Line Numbering
+set number " Line numbers ftw!
+nnoremap <F3> :set nonumber!<CR>
+
+" Tab Switching
+map <Left> :tabp<cr>
+map <Right> :tabn<cr>
+
+" Put buckups and swap files elsewhere
+set backupdir=~/.tmp/
+set directory=~/.tmp/
+
+" Insert newline below using Enter without entering insert mode
+map <CR> o<Esc>k
+
+" Split windows
+set splitbelow      " new windows open below the current window
+set splitright      " new windows open to the right of the current window
+
+" Remove the white underline for CursorLine
+hi clear CursorLine
+
+" Cursorline highlighted in normal mode; 
+" Insert mode is exited after 15 seconds of inactivity
+autocmd CursorMoved * set cursorline | hi CursorLine ctermbg=16
+autocmd InsertEnter * let updaterestore=&updatetime | set updatetime=15000 | set nocursorline
+autocmd InsertLeave * let &updatetime=updaterestore | set cursorline | hi CursorLine ctermbg=16
+
+" Leave Insert mode if no key is pressed for 15 seconds in Insert mode
+autocmd CursorHoldI * stopinsert 
+
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+
+" Searching
+set ignorecase smartcase " make searches case-sensitive only if they contain upper-case characters
+set hlsearch        " highlight search results
+set incsearch       " highlight as you type search term
+set history=10000   " Increase search history
+
+" Move between windows using ctrl + (standard line movement)
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+
+set autoindent      " Copy indent from current line to next upon pressing Enter
+
+" Colours
+set t_Co=256
+set term=xterm-256color
+let g:solarized_termcolors=256 
+set background=dark
+colorscheme solarized   " Use Solarized theme
+
+" Settings for tags and vim-easytags
+set tags=./.tags;
+" 2 = will use ./.tags file, or create if it doesn't exist
+let g:easytags_dynamic_files = 2
+
+" Columns
+if exists('+colorcolumn')
+    set colorcolumn=80,100
+    highlight ColorColumn ctermbg=95
+else
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%81v.\+/
+endif
+
+" Menu
+set wildmenu                                    " better command line completion
+set wildmode=list:longest
+let mapleader=","
+
+" Status line
+set laststatus=2                        " always show the status line
+set statusline+=\ #%n                   " buffer number
+set statusline+=\ %<%F                  " full path, truncated
+set statusline+=\ [%Y]                  " filetype, e.g. [python]
+set statusline+=\ [%{&ff}]              " file format
+set statusline+=\ %m                    " modified flag
+set statusline+=\ %r                    " read-only flag
+" last modified; takes up too much space
+" set statusline+=\ (%{strftime(\"%c\",getftime(expand(\"%:p\")))}) 
+set statusline+=%=                      " left/right separation point
+set statusline+=\ \ %2l,                " current line number
+set statusline+=%-5c                    " current column number
+set statusline+=%p%%\ of\ %-6L          " total number of lines in buffer
+set statusline+=\ [%03.3b][0x%02.2B]\   " ASCII and byte code of char under cursor
+autocmd BufEnter * highlight StatusLine ctermbg=224 ctermfg=black
+set statusline+=%{fugitive#statusline()}\ 
+
+" When switching to a file, enter its directory
+autocmd BufEnter * :lcd %:p:h
+
+" These suffixes get lower priority when doing tab completion for filenames
+" (usually files we are not likely to want to edit or read
+set suffixes=.bak,.swp,.o,.info,.log,.idx,.out,.pyc
+
+" Prevent auto-insert of linebreaks for long lines
+set linebreak
+set nolist
+set textwidth=0
+set wrapmargin=0
+
+" NERDTree Stuff
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+" Block Arrow Keys
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+
+" CtrlP Stuff
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Miscellaneous
+set backspace=eol,start,indent " better backspacing
+set ruler           " show current position
+set cmdheight=2     " height of the command bar
+set scrolloff=5     " 5 lines of context around the cursor
+set magic           " for regular expressions
+set lazyredraw      " do not redraw while running macros
+set ttyfast         " improves redrawing
+set title           " set title to value of 'titlestring' or 'filename'
+set showcmd         " show (partial) command keys in the status line
+let g:netrw_liststyle = 3
+set mouse=a         " allow mouse usage
+set ttymouse=xterm2
+
+" I prefer spaces to tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab

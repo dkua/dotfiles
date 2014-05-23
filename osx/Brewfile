@@ -1,0 +1,18 @@
+update
+
+upgrade
+
+install go
+install python
+install ack
+install ctags
+install git
+install mercurial
+install wget
+install vim
+install tree
+install tmux
+install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+install osxfuse
+install sshfs
+install ntfs-3g

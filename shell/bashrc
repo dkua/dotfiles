@@ -1,0 +1,14 @@
+# Set exports
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin
+export WORKON_HOME=$HOME/.virtualenvs
+export GOPATH=$HOME/go
+
+# Set default user
+DEFAULT_USER="dkua"
+
+# Set aliases
+alias "tmux.new"="tmux new-session -s ${1}"
+alias "tmux.attach"="tmux attach-session -t ${1}"
+alias "tmux.list"="tmux list-sessions"
+alias "tmux.nuke"="tmux kill-server"
+alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
