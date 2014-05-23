@@ -1,12 +1,14 @@
 DIR=$(HOME)/dotfiles
 
-osx: symlinks ensure_brew brew python_env go_env clone_vundle oh_my_zsh
+osx: symlinks ensure_brew brew python_env go_env vundle oh_my_zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
-deb: symlinks apt-get python_env go_env godeb clone_vundle oh_my_zsh
+deb: symlinks apt-get python_env go_env godeb vundle oh_my_zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
+	@mkdir -p $(HOME)/.tmp
+	@mkdir -p $(DIR)/vim/vim/bundle
 	@ln -sf $(DIR)/shell/bashrc $(HOME)/.bashrc
 	@ln -sf $(DIR)/shell/zshrc $(HOME)/.zshrc
 	@ln -nsf $(DIR)/vim/vim $(HOME)/.vim
@@ -15,7 +17,6 @@ symlinks:
 	@ln -sf $(DIR)/tmux/tmux-osx.conf $(HOME)/.tmux-osx.conf
 	@ln -sf $(DIR)/git/gitconfig $(HOME)/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global $(HOME)/.gitignore_global
-	@mkdir -p $(HOME)/.tmp
 
 ensure_brew:
 	ruby $(DIR)/scripts/ensure_homebrew.rb
@@ -44,8 +45,7 @@ godeb:
 	sudo apt-get -y autoremove
 	sudo $(GOPATH)/bin/godeb install
 
-clone_vundle: symlinks
-	mkdir -p $(HOME)/.vim/bundle/
+vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 
 oh_my_zsh:
