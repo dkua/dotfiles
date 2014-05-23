@@ -1,7 +1,7 @@
 golang
 python
 ack-grep
-ctags-exuberant
+exuberant-ctags
 git-core
 mercurial
 wget
