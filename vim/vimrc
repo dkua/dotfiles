@@ -26,6 +26,7 @@ filetype plugin indent on    " required
 
 " Enable highlighting for syntax
 syntax on
+syntax enable
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -81,8 +82,9 @@ set autoindent      " Copy indent from current line to next upon pressing Enter
 " Colours
 set t_Co=256
 set term=xterm-256color
-let g:solarized_termcolors=256 
+let g:solarized_termcolors=256
 set background=dark
+let g:solarized_termtrans=1
 colorscheme solarized   " Use Solarized theme
 
 " Settings for tags and vim-easytags
