@@ -11,12 +11,11 @@ symlinks:
 	@ln -sf $(DIR)/shell/zshrc $(HOME)/.zshrc
 	@ln -nsf $(DIR)/vim/vim $(HOME)/.vim
 	@ln -sf $(DIR)/vim/vimrc $(HOME)/.vimrc
-	@ln -nsf $(DIR)/vim/plugin $(HOME)/.vim/plugin
 	@ln -sf $(DIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -sf $(DIR)/tmux/tmux-osx.conf $(HOME)/.tmux-osx.conf
 	@ln -sf $(DIR)/git/gitconfig $(HOME)/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global $(HOME)/.gitignore_global
-	@mkdir $(HOME)/tmp
+	@mkdir -p $(HOME)/tmp
 
 ensure_brew:
 	ruby $(DIR)/scripts/ensure_homebrew.rb
@@ -35,8 +34,9 @@ python_env:
 	pip install virtualenvwrapper
 
 go_env:
-	mkdir $(HOME)/go
+	mkdir -p $(HOME)/go
 	export GOPATH='$(HOME)/go'
 
 clone_vundle: symlinks
+	mkdir -p $(HOME)/.vim/bundle/
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
