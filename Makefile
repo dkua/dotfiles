@@ -15,7 +15,7 @@ symlinks:
 	@ln -sf $(DIR)/tmux/tmux-osx.conf $(HOME)/.tmux-osx.conf
 	@ln -sf $(DIR)/git/gitconfig $(HOME)/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global $(HOME)/.gitignore_global
-	@mkdir -p $(HOME)/tmp
+	@mkdir -p $(HOME)/.tmp
 
 ensure_brew:
 	ruby $(DIR)/scripts/ensure_homebrew.rb
@@ -24,11 +24,12 @@ brew:
 	brew bundle $(DIR)/osx/Brewfile
 
 apt-get:
-	apt-get update
-	cat "$(DIR)/debian/packages.list" | xargs apt-get -y install
-	dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+	sudo apt-get update
+	sudo cat "$(DIR)/debian/packages.list" | xargs apt-get -y install
+	sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
 python_env:
+	command -v easy_install >/dev/null 2>&1 || { curl https://bootstrap.pypa.io/ez_setup.py -o - | python; }
 	command -v pip >/dev/null 2>&1 || easy_install pip
 	pip install virtualenv
 	pip install virtualenvwrapper
