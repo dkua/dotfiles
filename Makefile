@@ -40,10 +40,8 @@ go_env:
 	export GOPATH='$(HOME)/go'
 
 godeb:
-	go get launchpad.net/godeb
-	sudo apt-get remove -y golang
-	sudo apt-get -y autoremove
-	sudo $(GOPATH)/bin/godeb install
+	command -v go >/dev/null 2>&1 || { curl https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz go.tar.gz | sudo tar -C /usr/local -xzf go.tar.gz }
+	export PATH=$PATH:/usr/local/go/bin
 
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
