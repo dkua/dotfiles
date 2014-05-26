@@ -1,4 +1,5 @@
 DIR=$(HOME)/dotfiles
+DEB_GO='https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz'
 
 osx: symlinks ensure_brew brew python_env go_env vundle oh_my_zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
@@ -37,12 +38,9 @@ python_env:
 
 go_env:
 	mkdir -p $(HOME)/go
-	sudo export GOPATH=$(HOME)/go
 
 godeb:
-	DEB_GO='https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz'
 	command -v go >/dev/null 2>&1 || { curl $(DEB_GO) -o - | sudo tar -C /usr/local -xz; }
-	sudo export PATH=$(PATH):/usr/local/go/bin
 
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
