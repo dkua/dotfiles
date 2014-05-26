@@ -37,11 +37,12 @@ python_env:
 
 go_env:
 	mkdir -p $(HOME)/go
-	export GOPATH='$(HOME)/go'
+	sudo export GOPATH=$(HOME)/go
 
 godeb:
-	command -v go >/dev/null 2>&1 || { curl https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz go.tar.gz | sudo tar -C /usr/local -xzf go.tar.gz }
-	export PATH=$PATH:/usr/local/go/bin
+	DEB_GO='https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz'
+	command -v go >/dev/null 2>&1 || { curl $(DEB_GO) -o - | sudo tar -C /usr/local -xz; }
+	sudo export PATH=$(PATH):/usr/local/go/bin
 
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
