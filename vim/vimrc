@@ -16,7 +16,6 @@ Plugin 'pangloss/vim-javascript'
 " Tool Plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'flazz/vim-colorschemes'
 
@@ -136,16 +135,15 @@ set nolist
 set textwidth=0
 set wrapmargin=0
 
-" NERDTree Stuff
-autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-
 " Block Arrow Keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
 noremap! <Down> <Esc>
+
+" Explorer stuff
+map <C-n> :E<CR>
+let g:netrw_liststyle = 3
 
 " CtrlP Stuff
 let g:ctrlp_map = '<c-p>'
@@ -169,7 +167,6 @@ set lazyredraw      " do not redraw while running macros
 set ttyfast         " improves redrawing
 set title           " set title to value of 'titlestring' or 'filename'
 set showcmd         " show (partial) command keys in the status line
-let g:netrw_liststyle = 3
 set mouse=a         " allow mouse usage
 set ttymouse=xterm2
 
