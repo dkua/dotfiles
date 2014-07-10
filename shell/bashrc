@@ -11,6 +11,7 @@ DEFAULT_USER="dkua"
 
 # Set aliases
 alias "tmux.new"="tmux new-session -s ${1}"
+alias "tmux.kill"="tmux kill-session -t ${1}"
 alias "tmux.attach"="tmux attach-session -t ${1}"
 alias "tmux.list"="tmux list-sessions"
 alias "tmux.nuke"="tmux kill-server"
