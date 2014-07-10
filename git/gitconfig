@@ -1,8 +1,6 @@
 [user]
     name = David Kua
     email = david@kua.io
-[credential]
-    helper = osxkeychain
 [diff]
     tool = vimdiff
 [color]
