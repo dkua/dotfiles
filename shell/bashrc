@@ -3,6 +3,8 @@ export GOPATH=$HOME/go
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin
 export WORKON_HOME=$HOME/.virtualenvs
 
+export CDPATH=$GOPATH/src
+
 export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
 
