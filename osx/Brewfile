@@ -9,7 +9,7 @@ vim
 tree
 tmux
 reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
-osxfuse
+Caskroom/cask/osxfuse
 sshfs
 ntfs-3g
 zsh
