@@ -1,10 +1,10 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz'
 
-osx: symlinks ensure_brew brew python_env go_env vundle oh_my_zsh
+osx: symlinks ensure_brew brew python_env go_env vundle zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
-deb: symlinks apt-get python_env go_env godeb vundle oh_my_zsh
+deb: symlinks apt-get python_env go_env godeb vundle zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -45,5 +45,12 @@ godeb:
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 
-oh_my_zsh:
-	git clone git://github.com/robbyrussell/oh-my-zsh.git $(HOME)/.oh-my-zsh
+zsh:
+	zsh
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+	setopt EXTENDED_GLOB
+	for rcfile in "$(ZDOTDIR):-$(HOME)"/.zprezto/runcoms/^README.md(.N); do
+		ln -s "$(rcfile)" "$(ZDOTDIR):-$(HOME)/.$(rcfile:t)"
+	done
+	chsh -s /bin/zsh
+

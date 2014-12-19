@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+
 " Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -18,6 +19,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,10 +83,10 @@ set autoindent      " Copy indent from current line to next upon pressing Enter
 " Colours
 set t_Co=256
 set term=xterm-256color
-let g:solarized_termcolors=256
 set background=dark
-let g:solarized_termtrans=1
-colorscheme solarized   " Use Solarized theme
+colorscheme solarized   " vim theme
+
+let g:airline_powerline_fonts = 1
 
 " Settings for tags and vim-easytags
 set tags=./.tags;

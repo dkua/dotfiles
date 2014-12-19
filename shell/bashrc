@@ -1,6 +1,6 @@
 # Set exports
 export GOPATH=$HOME/go
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
 export WORKON_HOME=$HOME/.virtualenvs
 
 export CDPATH=$GOPATH/src
@@ -18,3 +18,4 @@ alias "tmux.attach"="tmux attach-session -t ${1}"
 alias "tmux.list"="tmux list-sessions"
 alias "tmux.nuke"="tmux kill-server"
 alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
+alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
