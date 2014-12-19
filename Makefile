@@ -23,6 +23,8 @@ ensure_brew:
 	ruby $(DIR)/scripts/ensure_homebrew.rb
 
 brew:
+	brew update
+	brew upgrade
 	brew install `cat $(DIR)/osx/Brewfile | grep -v "#"`
 
 apt-get:
