@@ -84,7 +84,7 @@ set autoindent      " Copy indent from current line to next upon pressing Enter
 set t_Co=256
 set term=xterm-256color
 set background=dark
-colorscheme solarized   " vim theme
+colorscheme molokai   " vim theme
 
 let g:airline_powerline_fonts = 1
 
