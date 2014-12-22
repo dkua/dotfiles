@@ -17,7 +17,7 @@ Plugin 'pangloss/vim-javascript'
 " Tool Plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
 
@@ -84,7 +84,7 @@ set autoindent      " Copy indent from current line to next upon pressing Enter
 set t_Co=256
 set term=xterm-256color
 set background=dark
-colorscheme solarized   " vim theme
+colorscheme molokai   " vim theme
 
 let g:airline_powerline_fonts = 1
 
@@ -227,3 +227,43 @@ fun! NormalizeWidths()
     set equalalways! equalalways!
     let &eadirection = eadir_pref
 endf
+
+" lightline.vim stuff
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'fugitive': 'MyFugitive',
+            \   'readonly': 'MyReadonly',
+            \   'modified': 'MyModified'
+            \ },
+            \ }
+
+function! MyModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! MyReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "⭤"
+    else
+        return ""
+    endif
+endfunction
+
+function! MyFugitive()
+    return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
