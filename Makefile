@@ -10,6 +10,7 @@ deb: symlinks apt-get python_env go_env godeb vundle zsh
 symlinks:
 	@mkdir -p $(HOME)/.tmp
 	@mkdir -p $(DIR)/vim/vim/bundle
+	@ln -sf $(DIR)/shell/profile $(HOME)/.profile
 	@ln -sf $(DIR)/shell/bashrc $(HOME)/.bashrc
 	@ln -sf $(DIR)/shell/zshrc $(HOME)/.zshrc
 	@ln -nsf $(DIR)/vim/vim $(HOME)/.vim

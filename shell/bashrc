@@ -1,46 +1,27 @@
-# Set exports
-export EDITOR=vim
-export GOPATH=$HOME/go
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
-export WORKON_HOME=$HOME/.virtualenvs
-export CDPATH=$GOPATH/src
-export LC_ALL="en_US.utf-8"
-export LANG="$LC_ALL" 
-
-# Set default user
-DEFAULT_USER="dkua"
-
-# Set aliases
-alias "tmux.new"="tmux new-session -s ${1}"
-alias "tmux.kill"="tmux kill-session -t ${1}"
-alias "tmux.attach"="tmux attach-session -t ${1}"
-alias "tmux.list"="tmux list-sessions"
-alias "tmux.nuke"="tmux kill-server"
-alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
-alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
-
-# Set some colours
-GREEN="\[\e[0;32m\]"
-BLUE="\[\e[0;34m\]"
-RED="\[\e[0;31m\]"
-YELLOW="\[\e[0;33m\]"
-COLOREND="\[\e[00m\]"
+source $HOME/.profile
 
 # Find bash completion directory
-bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
-if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ] ; then
-    if [ -f ~/bin/bash_completion   ] ; then
-        BASH_COMPLETION=~/bin/bash_completion
-        BASH_COMPLETION_DIR=~/.bash_completion.d
-        export BASH_COMPLETION BASH_COMPLETION_DIR
-        . ~/bin/bash_completion
-    fi
-fi  
-unset bash bmajor bminor
+bash=${BASH_VERSION%.*}; bmajor=${bash%.*}
+if [[ $bmajor -gt 2 ]]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        export BASH_COMPLETION_DIR=$(brew --prefix)/etc/bash_completion.d
+        . $(brew --prefix)/etc/bash_completion
+    else
+        if [[ -f ~/bin/bash_completion ]] ; then
+            BASH_COMPLETION=~/bin/bash_completion
+            BASH_COMPLETION_DIR=~/.bash_completion.d
+            export BASH_COMPLETION BASH_COMPLETION_DIR
+            . ~/bin/bash_completion
+        fi
+    fi  
+    unset bash bmajor
+fi
 
 # Responsive Prompt
 parse_git_branch() {
     if [[ -f "$BASH_COMPLETION_DIR/git" ]]; then
+        branch=`__git_ps1 "%s"`
+    elif [[ -f "$BASH_COMPLETION_DIR/git-completion.bash" ]]; then
         branch=`__git_ps1 "%s"`
     else
         ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
@@ -116,5 +97,4 @@ prompt() {
 
     PS1="$(working_directory)$(parse_git_branch)$(parse_remote_state)$exit_status"
 }
-
 PROMPT_COMMAND=prompt
