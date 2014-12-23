@@ -1,5 +1,5 @@
 DIR=$(HOME)/dotfiles
-DEB_GO='https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz'
+DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
 
 osx: symlinks ensure_brew brew python_env go_env vundle zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
