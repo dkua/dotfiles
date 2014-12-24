@@ -9,11 +9,16 @@ if [[ $bmajor -gt 2 ]]; then
         export BASH_COMPLETION_DIR=$(brew --prefix)/etc/bash_completion.d
         . $(brew --prefix)/etc/bash_completion
     else
-        if [[ -f /etc/bash_completion ]] ; then
-            BASH_COMPLETION_DIR=/etc/.bash_completion.d
-            BASH_COMPLETION=/etc/bash_completion
-            export BASH_COMPLETION BASH_COMPLETION_DIR
-            . /etc/bin/bash_completion
+        if [[ -f /etc/bash_completion ]]; then
+            if [[ -z "$BASH_COMPLETION" ]]; then
+                BASH_COMPLETION=/etc/bash_completion
+                export BASH_COMPLETION
+            fi
+            if [[ -z "$BASH_COMPLETION_DIR" ]]; then
+                BASH_COMPLETION_DIR=/etc/.bash_completion.d
+                export BASH_COMPLETION_DIR
+            fi
+            . /etc/bash_completion
         fi
     fi  
     unset bash bmajor
