@@ -1,7 +1,7 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
 
-osx: symlinks ensure_brew brew python_env go_env vundle zsh
+osx: symlinks ensure_brew brew python_env go_env vundle osxkeychain zsh 
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 deb: symlinks apt-get python_env go_env godeb vundle zsh
@@ -17,7 +17,7 @@ symlinks:
 	@ln -sf $(DIR)/vim/vimrc $(HOME)/.vimrc
 	@ln -sf $(DIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -sf $(DIR)/tmux/tmux-osx.conf $(HOME)/.tmux-osx.conf
-	@ln -sf $(DIR)/git/gitconfig $(HOME)/.gitconfig
+	@cp -f $(DIR)/git/gitconfig $(HOME)/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global $(HOME)/.gitignore_global
 
 ensure_brew:
@@ -52,3 +52,5 @@ zsh:
 	zsh -c `git clone --recursive https://github.com/sorin-ionescu/prezto.git "$(HOME)/.zprezto"`
 	chsh -s /bin/zsh
 
+osxkeychain: symlinks
+	git config --global credential.helper osxkeychain
