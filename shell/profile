@@ -10,6 +10,13 @@ export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
 export DOTFILES_DIR=$HOME/dotfiles
 
+# Git-Completion exports
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWCOLORHINTS=1
+
 # Set default user
 DEFAULT_USER="dkua"
 

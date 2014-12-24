@@ -26,31 +26,7 @@ fi
 
 # Responsive Prompt
 parse_git_branch() {
-    if [[ -f "$BASH_COMPLETION_DIR/git" ]]; then
-        branch=`__git_ps1 "%s"`
-    elif [[ -f "$BASH_COMPLETION_DIR/git-completion.bash" ]]; then
-        branch=`__git_ps1 "%s"`
-    else
-        ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
-        branch="${ref#refs/heads/}"
-    fi
-
-    if [[ `tput cols` -lt 110 ]]; then
-        branch=`echo $branch | sed s/feature/f/1`
-        branch=`echo $branch | sed s/hotfix/h/1`
-        branch=`echo $branch | sed s/release/\r/1`
-
-        branch=`echo $branch | sed s/master/mstr/1`
-        branch=`echo $branch | sed s/develop/dev/1`
-    fi
-
-    if [[ $branch != "" ]]; then
-        if [[ $(git status 2> /dev/null | tail -n1) == "nothing to commit (working directory clean)" ]]; then
-            echo "${GREEN}$branch${COLOREND} "
-        else
-            echo "${RED}$branch${COLROEND} "
-        fi
-    fi
+    echo `__git_ps1 "%s"`
 }
 
 working_directory() {
