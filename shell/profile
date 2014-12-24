@@ -29,3 +29,20 @@ BLUE="\[\e[0;34m\]"
 RED="\[\e[0;31m\]"
 YELLOW="\[\e[0;33m\]"
 COLOREND="\[\e[00m\]"
+
+goget () {
+    if [ "$1" ]; then
+        go get -u $1
+    else
+        echo "usage: goget <repo> <symlink folder>"
+        return 1
+    fi
+
+    if [ "$2" ]; then
+        ln -s $GOPATH/src/$1 $2
+    else
+        echo "nothing symlinked"
+        return 1
+    fi
+    return 0
+}
