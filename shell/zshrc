@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -10,23 +10,13 @@ zstyle :compinstall filename '/Users/dkua/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-      source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Customize to your needs...
 
 source $HOME/.profile
 
-autoload -Uz promptinit
-promptinit
-prompt agnoster
+source $DOTFILES_DIR/shell/antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme minimal
+antigen apply

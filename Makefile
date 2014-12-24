@@ -48,8 +48,7 @@ godeb:
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 
-zsh:
-	zsh -c `git clone --recursive https://github.com/sorin-ionescu/prezto.git "$(HOME)/.zprezto"`
+zsh: symlinks
 	chsh -s /bin/zsh
 
 osxkeychain: symlinks

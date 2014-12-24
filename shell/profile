@@ -8,6 +8,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export CDPATH=$GOPATH/src
 export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
+export DOTFILES_DIR=$HOME/dotfiles
 
 # Set default user
 DEFAULT_USER="dkua"
