@@ -1,10 +1,10 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
 
-osx: symlinks ensure_brew brew python_env go_env vundle osxkeychain zsh 
+osx: symlinks copy ensure_brew brew python_env go_env vundle osxkeychain zsh 
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
-deb: symlinks apt-get python_env go_env godeb vundle zsh
+deb: symlinks copy apt-get python_env go_env godeb vundle zsh
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -12,14 +12,16 @@ symlinks:
 	@mkdir -p $(DIR)/vim/vim/bundle
 	@ln -sf $(DIR)/shell/profile $(HOME)/.profile
 	@ln -sf $(DIR)/shell/bashrc $(HOME)/.bashrc
-	@cp -f $(DIR)/shell/bash_profile $(HOME)/.bash_profile
 	@ln -sf $(DIR)/shell/zshrc $(HOME)/.zshrc
 	@ln -nsf $(DIR)/vim/vim $(HOME)/.vim
 	@ln -sf $(DIR)/vim/vimrc $(HOME)/.vimrc
 	@ln -sf $(DIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -sf $(DIR)/tmux/tmux-osx.conf $(HOME)/.tmux-osx.conf
-	@cp -f $(DIR)/git/gitconfig $(HOME)/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global $(HOME)/.gitignore_global
+
+copy:
+	@cp -fH $(DIR)/shell/bash_profile $(HOME)/.bash_profile
+	@cp -fH $(DIR)/git/gitconfig $(HOME)/.gitconfig
 
 ensure_brew:
 	ruby $(DIR)/scripts/ensure_homebrew.rb
@@ -55,5 +57,5 @@ vundle: symlinks
 zsh: symlinks
 	chsh -s /bin/zsh
 
-osxkeychain: symlinks
+osxkeychain:
 	git config --global credential.helper osxkeychain
