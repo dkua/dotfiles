@@ -41,12 +41,15 @@ python_env:
 
 go_env:
 	mkdir -p $(HOME)/go
+	export GOPATH=$(HOME)/go
 
 godeb:
 	command -v go >/dev/null 2>&1 || { curl $(DEB_GO) -o - | sudo tar -C /usr/local -xz; }
 
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
+	vim -c "PluginInstall"
+	vim -c "GoInstallBinaries"
 
 zsh: symlinks
 	chsh -s /bin/zsh
