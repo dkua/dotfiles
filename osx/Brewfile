@@ -13,3 +13,4 @@ osxfuse
 sshfs
 ntfs-3g
 zsh
+ansible
