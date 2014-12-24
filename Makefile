@@ -12,6 +12,7 @@ symlinks:
 	@mkdir -p $(DIR)/vim/vim/bundle
 	@ln -sf $(DIR)/shell/profile $(HOME)/.profile
 	@ln -sf $(DIR)/shell/bashrc $(HOME)/.bashrc
+	@cp -f $(DIR)/shell/bash_profile $(HOME)/.bash_profile
 	@ln -sf $(DIR)/shell/zshrc $(HOME)/.zshrc
 	@ln -nsf $(DIR)/vim/vim $(HOME)/.vim
 	@ln -sf $(DIR)/vim/vimrc $(HOME)/.vimrc
