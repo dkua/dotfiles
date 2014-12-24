@@ -14,3 +14,4 @@ sshfs
 ntfs-3g
 zsh
 ansible
+bash-complete

@@ -5,7 +5,7 @@ source $HOME/.profile
 # Find bash completion directory
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}
 if [[ $bmajor -gt 2 ]]; then
-    if [ $(type brew >/dev/null 2>&1) ]; then
+    if hash brew 2>/dev/null; then
         export BASH_COMPLETION_DIR=$(brew --prefix)/etc/bash_completion.d
         . $(brew --prefix)/etc/bash_completion
     else
