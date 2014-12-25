@@ -1,11 +1,9 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
 
-osx: symlinks copy ensure_brew brew python_env go_env vundle osxkeychain zsh 
-	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
+osx: symlinks copy brew cask python_env go_env vundle osxkeychain zsh 
 
 deb: symlinks copy apt-get python_env go_env godeb vundle zsh
-	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
 	@mkdir -p $(HOME)/.tmp
@@ -30,6 +28,16 @@ brew:
 	brew update
 	brew upgrade
 	brew install `cat $(DIR)/osx/Brewfile | grep -v "#"`
+	brew cleanup
+	@echo "Remember: Run brew doctor afterwords"
+
+cask:
+	brew cask update
+	brew tap caskroom/fonts
+	brew cask install `cat $(DIR)/osx/Caskfile | grep -v "#"`
+	brew cask cleanup
+	brew cask alfred link
+	@echo "Remember: Run brew cask doctor afterwords"
 
 apt-get:
 	sudo apt-get update
