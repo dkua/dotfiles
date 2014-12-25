@@ -14,6 +14,7 @@ osxfuse
 sshfs
 ntfs-3g
 zsh
+trash
 ansible
 bash-completion
 mackup
