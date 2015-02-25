@@ -29,6 +29,7 @@ alias "tmux.nuke"="tmux kill-server"
 alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
 alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
 alias "rm"="rm -i"
+alias "vagrant.sup"="vagrant up && vagrant ssh"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"
