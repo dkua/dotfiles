@@ -28,7 +28,9 @@ alias "tmux.list"="tmux list-sessions"
 alias "tmux.nuke"="tmux kill-server"
 alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
 alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
-alias "rm"="rm -i"
+alias "rmi"="rm -i"
+alias "docker.rmc"="docker_rmc"
+alias "docker.rmi"="docker_rmi"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"
@@ -52,4 +54,14 @@ goget () {
         return 1
     fi
     return 0
+}
+
+docker_rmc() {
+    echo "deleting all Docker containers";
+    docker rm `docker ps -a -q`;
+}
+
+docker_rmi() {
+    echo "deleting all Docker images";
+    docker rmi `docker images -q`;
 }
