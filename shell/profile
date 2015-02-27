@@ -31,6 +31,7 @@ alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
 alias "rmi"="rm -i"
 alias "docker.rmc"="docker_rmc"
 alias "docker.rmi"="docker_rmi"
+alias "vagrant.sup"="vagrant up && vagrant ssh"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"

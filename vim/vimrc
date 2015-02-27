@@ -21,6 +21,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rizzatti/dash.vim'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
