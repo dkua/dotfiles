@@ -5,6 +5,8 @@ osx: symlinks copy brew cask python_env go_env vundle osxkeychain zsh
 
 deb: symlinks copy apt-get python_env go_env godeb vundle zsh
 
+base: symlinks copy vundle zsh
+
 symlinks:
 	@mkdir -p $(HOME)/.tmp
 	@mkdir -p $(DIR)/vim/vim/bundle
