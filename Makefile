@@ -65,6 +65,7 @@ vundle: symlinks
 	vim -c "GoInstallBinaries"
 
 zsh: symlinks
+	sudo apt-get -y install zsh
 	chsh -s /bin/zsh
 
 osxkeychain:
