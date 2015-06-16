@@ -45,3 +45,7 @@ tags
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Language files #
+##################
+*.pyc
