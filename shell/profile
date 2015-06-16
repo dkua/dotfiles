@@ -3,9 +3,10 @@
 # Set exports
 export EDITOR=vim
 export GOPATH=$HOME/go
+export ANACONDAPATH=$HOME/anaconda
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
 export WORKON_HOME=$HOME/.virtualenvs
-export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/$USER:$GOPATH/src/github.com:$GOPATH/src/code.google.com/p
+export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/$USER:$GOPATH/src/github.com:$GOPATH/src/code.google.com/p:$WORKON_HOME
 export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
 export DOTFILES_DIR=$HOME/dotfiles
@@ -26,12 +27,14 @@ alias "tmux.kill"="tmux kill-session -t ${1}"
 alias "tmux.attach"="tmux attach-session -t ${1}"
 alias "tmux.list"="tmux list-sessions"
 alias "tmux.nuke"="tmux kill-server"
-alias "anaconda"="export PATH=$HOME/anaconda/bin:$PATH"
+alias "anaconda"="export PATH=$ANACONDAPATH/bin:$PATH"
 alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
 alias "rmi"="rm -i"
 alias "docker.rmc"="docker_rmc"
 alias "docker.rmi"="docker_rmi"
 alias "vagrant.sup"="vagrant up && vagrant ssh"
+alias "vi"="vim"
+alias "vissh"="vi $HOME/.ssh/config"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"
@@ -66,3 +69,6 @@ docker_rmi() {
     echo "deleting all Docker images";
     docker rmi `docker images -q`;
 }
+
+# Source box specific stuff
+[ -f $HOME/.vm_profile ] && source $HOME/.vm_profile
