@@ -63,7 +63,9 @@ govim: vundle
 	vim +GoInstallBinaries +qall
 
 vundle: symlinks
-	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
+	if [ ! -d $(HOME)/.vim/bundle/Vundle.vim ]; then \
+		git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim; \
+	fi
 	vim +PluginInstall +qall
 
 zsh: symlinks
