@@ -10,9 +10,6 @@ vim
 tree
 tmux
 reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
-osxfuse
-sshfs
-ntfs-3g
 zsh
 trash
 ansible
