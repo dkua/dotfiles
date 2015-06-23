@@ -33,6 +33,8 @@ alias "rmi"="rm -i"
 alias "docker.rmc"="docker_rmc"
 alias "docker.rmi"="docker_rmi"
 alias "vagrant.sup"="vagrant up && vagrant ssh"
+alias "vagrant.pup"="vagrant reload --provision && vagrant ssh"
+alias "vagrant.purr"="vagrant reload --provision"
 alias "vi"="vim"
 alias "vissh"="vi $HOME/.ssh/config"
 
