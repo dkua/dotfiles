@@ -1,11 +1,11 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
 
-osx: symlinks copy brew cask python_env go_env vundle osxkeychain zsh 
+osx: symlinks copy brew cask python_env go_env vundle govim osxkeychain zsh 
 
-deb: symlinks copy apt-get python_env go_env godeb vundle zsh
+deb: symlinks copy apt-get python_env go_env godeb vundle govim zsh
 
-base: symlinks copy vundle zsh
+base: symlinks copy vundle
 
 symlinks:
 	@mkdir -p $(HOME)/.tmp
@@ -59,13 +59,14 @@ go_env:
 godeb:
 	command -v go >/dev/null 2>&1 || { curl $(DEB_GO) -o - | sudo tar -C /usr/local -xz; }
 
+govim: vundle
+	vim +GoInstallBinaries +qall
+
 vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
-	vim -c "PluginInstall"
-	vim -c "GoInstallBinaries"
+	vim +PluginInstall +qall
 
 zsh: symlinks
-	sudo apt-get -y install zsh
 	chsh -s /bin/zsh
 
 osxkeychain:
