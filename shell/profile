@@ -37,6 +37,7 @@ alias "vagrant.pup"="vagrant reload --provision && vagrant ssh"
 alias "vagrant.purr"="vagrant reload --provision"
 alias "vi"="vim"
 alias "vissh"="vi $HOME/.ssh/config"
+alias ":q"="exit"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"
