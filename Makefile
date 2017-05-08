@@ -38,7 +38,6 @@ cask:
 	brew tap caskroom/fonts
 	brew cask install `cat $(DIR)/osx/Caskfile | grep -v "#"`
 	brew cask cleanup
-	brew cask alfred link
 	@echo "Remember: Run brew cask doctor afterwords"
 
 apt-get:
