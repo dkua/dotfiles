@@ -1,6 +1,4 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-
 
 " Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
+Plugin 'dougireton/vim-chef'
 
 " Tool Plugins
 Plugin 'scrooloose/syntastic'
@@ -20,23 +19,30 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
-Plugin 'rizzatti/dash.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
 
 " Enable highlighting for syntax
 syntax on
 syntax enable
 
+filetype plugin indent on     " required
+
+" Map leader to comma
+let mapleader=","
+
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
+" Toggle paste mode (auto-indent on/off)
+set pastetoggle=<leader>p
+
 " Line Numbering
 set number " Line numbers ftw!
-nnoremap <F3> :set nonumber!<CR>
+nnoremap <leader>l :set nonumber!<CR>
 
 " Tab Switching
 map <Left> :tabp<cr>
@@ -107,7 +113,6 @@ endif
 " Menu
 set wildmenu                                    " better command line completion
 set wildmode=list:longest
-let mapleader=","
 
 " Status line
 set laststatus=2                        " always show the status line
@@ -170,11 +175,6 @@ set showcmd         " show (partial) command keys in the status line
 set mouse=a         " allow mouse usage
 set ttymouse=xterm2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto-commenting
-
-" I prefer spaces to tabs
-set tabstop=4
-set shiftwidth=4
-set expandtab
 
 " netrw stuff
 let g:netrw_dirhistmax=100      " keep more history
@@ -269,10 +269,3 @@ endfunction
 function! MyFugitive()
     return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
-
-" Go stuff
-let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1

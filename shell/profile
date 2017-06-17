@@ -11,6 +11,8 @@ export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/$USER:$GOPATH/src/githu
 export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
 export DOTFILES_DIR=$HOME/dotfiles
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 # Git-Completion exports
 export GIT_PS1_SHOWDIRTYSTATE=1
@@ -83,6 +85,9 @@ anaconda() {
 nanaconda() {
     export PATH=$(echo $PATH | sed -e "s|$ANACONDAPATH/bin:||g");
 }
+
+# Source work specific stuff
+[ -f $HOME/.work-profile ] && source $HOME/.work-profile
 
 # Source box specific stuff
 [ -f $HOME/.vm_profile ] && source $HOME/.vm_profile
