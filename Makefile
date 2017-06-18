@@ -1,5 +1,5 @@
 DIR=$(HOME)/dotfiles
-DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
+DEB_GO='https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz'
 
 osx: symlinks copy brew cask python_env go_env vundle govim osxkeychain zsh 
 
