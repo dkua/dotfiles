@@ -24,7 +24,7 @@ copy:
 	@cp -fH $(DIR)/git/gitconfig $(HOME)/.gitconfig
 
 ensure_brew:
-	ruby $(DIR)/scripts/ensure_homebrew.rb
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew:
 	brew update
