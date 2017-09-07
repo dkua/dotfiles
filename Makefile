@@ -1,5 +1,5 @@
 DIR=$(HOME)/dotfiles
-DEB_GO='https://storage.googleapis.com/golang/go1.4.linux-amd64.tar.gz'
+DEB_GO='https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz'
 
 osx: symlinks copy brew cask python_env go_env vundle govim osxkeychain zsh 
 
@@ -24,7 +24,7 @@ copy:
 	@cp -fH $(DIR)/git/gitconfig $(HOME)/.gitconfig
 
 ensure_brew:
-	ruby $(DIR)/scripts/ensure_homebrew.rb
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew:
 	brew update
