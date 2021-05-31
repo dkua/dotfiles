@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+setopt INTERACTIVE_COMMENTS
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
