@@ -3,7 +3,6 @@
 # Set exports
 export EDITOR=vim
 export GOPATH=$HOME/go
-export ANACONDAPATH=$HOME/anaconda;
 export LOCAL_BIN=$HOME/bin
 export PATH=$LOCAL_BIN:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
 export WORKON_HOME=$HOME/.virtualenvs
@@ -30,8 +29,6 @@ alias "tmux.kill"="tmux kill-session -t ${1}"
 alias "tmux.attach"="tmux attach-session -t ${1}"
 alias "tmux.list"="tmux list-sessions"
 alias "tmux.nuke"="tmux kill-server"
-alias "anaconda"="anaconda"
-alias "nanaconda"="nanaconda"
 alias "virtenv"="source /usr/local/bin/virtualenvwrapper.sh"
 alias "rmi"="rm -i"
 alias "docker.rmc"="docker_rmc"
@@ -78,13 +75,6 @@ docker_rmi() {
     docker rmi `docker images -q`;
 }
 
-anaconda() {
-    export PATH=$ANACONDAPATH/bin:$PATH;
-}
-
-nanaconda() {
-    export PATH=$(echo $PATH | sed -e "s|$ANACONDAPATH/bin:||g");
-}
 
 # Source work specific stuff
 [ -f $HOME/.work-profile ] && source $HOME/.work-profile
