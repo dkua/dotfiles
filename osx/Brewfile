@@ -1,18 +1,20 @@
-bash
-go
-python
-ack
-ctags
-git
-mercurial
-wget
-vim
-tree
-tmux
-reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
-zsh
-trash
-ansible
-bash-completion
-mackup
-caskroom/cask/brew-cask
+tap "homebrew/cask"
+
+brew git
+brew python
+brew ruby
+brew wget
+brew vim
+brew tree
+brew tmux
+brew zsh
+
+cask rectangle
+cask alfred
+cask dropbox
+cask google-chrome
+cask iterm2
+cask visual-studio-code
+cask docker
+cask zoom
+cask discord
