@@ -1,5 +1,5 @@
 [user]
-    name = David Kua
+    name = dkua
     email = david@kua.io
 [diff]
     tool = vimdiff
@@ -19,10 +19,12 @@
     changed = green
     untracked = cyan
 [alias]
-    slog = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
-    glog = log --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d\\ %C(auto,reset)%s\\ \\ [%C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)]"
-    gflog = log -p --cc --graph --decorate
-    wtf = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d%C(auto,reset)\\ by\\ %C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)%n\\ %s%n" --stat
+    # Returns name of current branch
+    # Usage: git current
+    current = rev-parse --abbrev-ref HEAD
+    # Makes a full copy of the current branch with `backup.<epoch>` appended before doing an interactive rebase
+    # Usage: git safebase HEAD~2
+    safebase = !CURRENT=$(git current) && git branch -c $CURRENT $CURRENT.backup.$(date +%s) && git rebase -i
 [core]
     editor = vim  
     excludesfile = $HOME/.gitignore_global
