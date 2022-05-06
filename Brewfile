@@ -1,6 +1,6 @@
-tap "homebrew/cask"
-
 brew "git"
+brew "mercurial"
+brew "svn"
 brew "python"
 brew "ruby"
 brew "wget"
@@ -9,6 +9,8 @@ brew "tree"
 brew "tmux"
 brew "zsh"
 
+tap "homebrew/cask"
+
 cask "rectangle"
 cask "alfred"
 cask "dropbox"
@@ -16,5 +18,11 @@ cask "google-chrome"
 cask "iterm2"
 cask "visual-studio-code"
 cask "docker"
+cask "sequel-ace"
+cask "tla-plus-toolbox"
 cask "zoom"
 cask "discord"
+
+tap "homebrew/cask-fonts"
+
+cask "font-source-code-pro"

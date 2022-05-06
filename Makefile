@@ -1,5 +1,6 @@
 DIR=$(HOME)/dotfiles
 DEB_GO='https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz'
+HOMEBREW_URL='https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh'
 
 osx: symlinks copy brew cask python_env go_env vundle govim osxkeychain zsh 
 
@@ -24,21 +25,19 @@ copy:
 	@cp -fH $(DIR)/git/gitconfig $(HOME)/.gitconfig
 
 ensure_brew:
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	sudo true
+	xcode-select --install | true
+	curl -fsSL $(HOMEBREW_URL) | /bin/bash
+	$$(/opt/homebrew/bin/brew shellenv)
+	softwareupdate --install-rosetta --agree-to-license
+	curl -fsSL $(HOMEBREW_URL) | arch -x86_64 /bin/bash
 
 brew:
 	brew update
 	brew upgrade
-	brew install `cat $(DIR)/osx/Brewfile | grep -v "#"`
+	brew bundle install
 	brew cleanup
 	@echo "Remember: Run brew doctor afterwords"
-
-cask:
-	brew cask update
-	brew tap caskroom/fonts
-	brew cask install `cat $(DIR)/osx/Caskfile | grep -v "#"`
-	brew cask cleanup
-	@echo "Remember: Run brew cask doctor afterwords"
 
 apt-get:
 	sudo apt-get update

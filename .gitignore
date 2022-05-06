@@ -2,3 +2,4 @@
 bundle/
 vim/vim/
 .DS_Store
+Brewfile.lock.json

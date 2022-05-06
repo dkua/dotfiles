@@ -1,10 +1,11 @@
 #!/bin/sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set exports
 export EDITOR=vim
 export GOPATH=$HOME/go
 export LOCAL_BIN=$HOME/bin
-export PATH=$LOCAL_BIN:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
+export PATH=$LOCAL_BIN:/opt/homebrew/bin:/opt/homebrew/opt:/opt/homebrew/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
 export WORKON_HOME=$HOME/.virtualenvs
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/$USER:$GOPATH/src/github.com:$GOPATH/src/code.google.com/p:$WORKON_HOME
 export LC_ALL="en_US.utf-8"
@@ -22,6 +23,7 @@ export GIT_PS1_SHOWCOLORHINTS=1
 DEFAULT_USER="dkua"
 
 # Set aliases
+alias "ibrew"="arch -x86_64 /usr/local/bin/brew"
 alias "tmux.new"="tmux new-session -s ${1}"
 alias "tmux.kill"="tmux kill-session -t ${1}"
 alias "tmux.attach"="tmux attach-session -t ${1}"
@@ -38,6 +40,7 @@ alias "vagrant.nuke"="vagrant destroy -f"
 alias "vi"="vim"
 alias "vissh"="vi $HOME/.ssh/config"
 alias ":q"="exit"
+alias "python"="python3"
 
 # Set some colours
 GREEN="\[\e[0;32m\]"
@@ -79,5 +82,3 @@ docker_rmi() {
 
 # Source box specific stuff
 [ -f $HOME/.vm_profile ] && source $HOME/.vm_profile
-
-eval $(/opt/homebrew/bin/brew shellenv)
