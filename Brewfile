@@ -22,6 +22,7 @@ cask "sequel-ace"
 cask "tla-plus-toolbox"
 cask "zoom"
 cask "discord"
+cask "obsidian"
 
 tap "homebrew/cask-fonts"
 
