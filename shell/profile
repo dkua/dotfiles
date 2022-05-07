@@ -7,7 +7,6 @@ export GOPATH=$HOME/go
 export LOCAL_BIN=$HOME/bin
 export PATH=$LOCAL_BIN:/opt/homebrew/bin:/opt/homebrew/opt:/opt/homebrew/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/usr/local/go/bin:/Applications/eclipse
 export WORKON_HOME=$HOME/.virtualenvs
-export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/$USER:$GOPATH/src/github.com:$GOPATH/src/code.google.com/p:$WORKON_HOME
 export LC_ALL="en_US.utf-8"
 export LANG="$LC_ALL" 
 export DOTFILES_DIR=$HOME/dotfiles
