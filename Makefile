@@ -60,11 +60,14 @@ godeb:
 govim: vundle
 	vim +GoInstallBinaries +qall
 
-vundle: symlinks
+vundle: symlinks patch_vim
 	if [ ! -d $(HOME)/.vim/bundle/Vundle.vim ]; then \
 		git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim; \
 	fi
 	vim +PluginInstall +qall
+
+patch_vim:
+	vim -Nu NONE -S $(DIR)/vim/netrw_fix.vim +qall
 
 zsh: symlinks
 	chsh -s /bin/zsh
