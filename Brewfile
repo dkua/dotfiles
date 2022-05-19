@@ -10,6 +10,7 @@ brew "tmux"
 brew "zsh"
 
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 
 cask "rectangle"
 cask "alfred"
@@ -22,7 +23,12 @@ cask "sequel-ace"
 cask "tla-plus-toolbox"
 cask "zoom"
 cask "discord"
+cask "signal"
 cask "obsidian"
+cask "todoist"
+cask "soundsource"
+cask "displaylink"
+cask "fujitsu-scansnap-home"
 
 tap "homebrew/cask-fonts"
 
