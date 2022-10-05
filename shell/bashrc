@@ -81,3 +81,4 @@ prompt() {
     PS1="$(working_directory)$(parse_git_branch)$(parse_remote_state)$exit_status"
 }
 PROMPT_COMMAND=prompt
+. "$HOME/.cargo/env"
